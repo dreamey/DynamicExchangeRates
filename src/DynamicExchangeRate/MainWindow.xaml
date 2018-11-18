@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DynamicExchangeRate"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Dynamic Exchange Rate" Height="800" Width="1200" WindowStyle="None">
     <Grid>
-        
+        <StackPanel x:Name="MainStackPanel">
+            
+        </StackPanel>
     </Grid>
 </Window>
