@@ -35,8 +35,7 @@ namespace DynamicExchangeRate
         {
             foreach (var _subCurrency in SubCurrencyList)
             {
-                string BaseSubText = $"{BaseCurrency.ToString()}/{SubCurrencyList}";
-
+                string BaseSubText = $"{BaseCurrency.ToString()}/{_subCurrency}";
                 var b = new TextBlock();
                 b.Text = BaseSubText;
                 ExchangeRateInputMainStackPanel.Children.Add(b);

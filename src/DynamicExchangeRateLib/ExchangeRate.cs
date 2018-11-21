@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DynamicExchangeRateLib
 {
@@ -17,16 +18,27 @@ namespace DynamicExchangeRateLib
 
         public static Currency[] GetCurrencies()
         {
-            ExchangeRate.Currency[] values = (ExchangeRate.Currency[])Enum.GetValues(typeof(ExchangeRate.Currency));
+
+            Currency[] values = (Currency[])Enum.GetValues(typeof(Currency));
             return values;
         }
 
-        public static Dictionary<string, Currency> StrToCurrency = new Dictionary<string, Currency>
+        public static Currency StrToCurrency(string Str)
         {
-            { "EUR", Currency.EUR },
-            { "GBP", Currency.GBP },
-            { "EUR", Currency.USD }
-        };
+            switch (Str)
+            {
+                case "GBP":
+                    return Currency.GBP;
+                case "EUR":
+                    return Currency.EUR;
+                case "USD":
+                    return Currency.USD;
+                default:
+                    throw new InvalidCastException();
+            }
+
+
+        }
 
     }
 }

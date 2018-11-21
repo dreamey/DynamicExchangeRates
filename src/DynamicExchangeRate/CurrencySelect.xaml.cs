@@ -32,7 +32,7 @@ namespace DynamicExchangeRate
         {
             foreach (var currency in ExchangeRate.GetCurrencies())
             {
-                _baseCurrencyCombobox.Items.Add(currency);
+                _baseCurrencyCombobox.Items.Add(currency.ToString());
             }
         }
 
@@ -66,11 +66,11 @@ namespace DynamicExchangeRate
 
         private void _confirmButton_Click(object sender, RoutedEventArgs e)
         {
-            ExchangeRate.Currency BaseCurrency = ExchangeRate.StrToCurrency[_baseCurrencyCombobox.SelectedItem.ToString()];
+            ExchangeRate.Currency BaseCurrency = ExchangeRate.StrToCurrency(_baseCurrencyCombobox.SelectedItem.ToString());
             var CurrencyList = new List<ExchangeRate.Currency>
             {
-                ExchangeRate.StrToCurrency[_subCurrencyCombobox.SelectedItem.ToString()],
-                ExchangeRate.StrToCurrency[_subCurrencyCombobox1.SelectedItem.ToString()]
+                ExchangeRate.StrToCurrency(_subCurrencyCombobox.SelectedItem.ToString()),
+                ExchangeRate.StrToCurrency(_subCurrencyCombobox1.SelectedItem.ToString())
             };
             App.ElementHandles.ExchangeRateInputHWND = new ExchangeRateInput(BaseCurrency, CurrencyList);
             CurrencySelectMainGrid.Children.Clear();
