@@ -6,10 +6,32 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:DynamicExchangeRate"
              mc:Ignorable="d" 
-             d:DesignHeight="760" d:DesignWidth="792">
-    <Grid>
-        <StackPanel x:Name="ExchangeRateInputMainStackPanel" Loaded="ExchangeRateInputMainStackPanel_Loaded">
-            
+             d:DesignHeight="760" d:DesignWidth="792" Loaded="UserControl_Loaded">
+    <UserControl.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="30" />
+            <Setter Property="Margin" Value="20" />
+        </Style>
+    </UserControl.Resources>
+    <StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column ="1" Foreground="#33BCBA">BUY (ASK)</Label>
+            <Label Grid.Column ="2" Foreground="#8D70B8">SELL (BID)</Label>
+            <!--PREVIOUS COLOURS : #1F88F2 #c10720--> 
+        </Grid>
+
+        <StackPanel x:Name="ExchangeRateInputMainStackPanel">
+          <Grid>
+            <Grid.RowDefinitions>
+              
+            </Grid.RowDefinitions>
+          </Grid>
         </StackPanel>
-    </Grid>
+
+    </StackPanel>
 </UserControl>

@@ -60,6 +60,8 @@ namespace DynamicExchangeRate
                 if (currency.ToString() != _subCurrencyCombobox.SelectedItem.ToString() && currency.ToString() != _baseCurrencyCombobox.SelectedItem.ToString())
                 {
                     _subCurrencyCombobox1.Items.Add(currency);
+                    //If only 1 sub currency can be chosen, then auto fill it
+                    if (_subCurrencyCombobox1.Items.Count == 1) { _subCurrencyCombobox1.SelectedIndex = 0; }
                 }
             };
          }

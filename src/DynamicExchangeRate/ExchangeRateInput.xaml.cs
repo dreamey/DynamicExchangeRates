@@ -31,15 +31,44 @@ namespace DynamicExchangeRate
             this.SubCurrencyList = SubCurrencyList;
         }
 
-        private void ExchangeRateInputMainStackPanel_Loaded(object sender, RoutedEventArgs e)
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             foreach (var _subCurrency in SubCurrencyList)
             {
-                string BaseSubText = $"{BaseCurrency.ToString()}/{_subCurrency}";
-                var b = new TextBlock();
-                b.Text = BaseSubText;
-                ExchangeRateInputMainStackPanel.Children.Add(b);
+
+                var currGrid = new Grid();
+
+                RowDefinition currRow = new RowDefinition();
+                currGrid.RowDefinitions.Add(newRow);
+
+
+                //Populate parent
+                currGrid.Children.Add(currDescription);
+
+
+                ExchangeRateInputMainStackPanel.Children.Add(currGrid);
             }
         }
+
+        private void InitGrid()
+        {
+            var currGrid = new Grid();
+
+            for (int i = 0; i < SubCurrencyList.Count; i++)
+            {
+                RowDefinition currRow = new RowDefinition();
+                currGrid.RowDefinitions.Add(currRow);
+
+                string BaseSubText = $"{BaseCurrency.ToString()}/{SubCurrencyList[i]}";
+                var currDescription = new TextBlock
+                {
+                    Text = BaseSubText,
+                    Margin = new Thickness(20)
+                };
+            }
+        }
+
+
+        private Dictionary<string, TextBox> StrToElement = new Dictionary<string, TextBox>();
     }
 }
