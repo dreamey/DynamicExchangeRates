@@ -33,27 +33,15 @@ namespace DynamicExchangeRate
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            foreach (var _subCurrency in SubCurrencyList)
-            {
+            var currGrid = new Grid();//When the ExchangeRateInput is open, it automatically creates a new grid.
 
-                var currGrid = new Grid();
-
-                RowDefinition currRow = new RowDefinition();
-                currGrid.RowDefinitions.Add(newRow);
-
-
-                //Populate parent
-                currGrid.Children.Add(currDescription);
-
-
-                ExchangeRateInputMainStackPanel.Children.Add(currGrid);
-            }
-        }
-
-        private void InitGrid()
-        {
-            var currGrid = new Grid();
-
+            /*
+            For loop adjusts the amount of rows need to be added
+            3 columns and 1 row remain contant when loaded
+            row n, column 1 will be the listed subcurrency
+            row n, column 2 will be the buy rate
+            row n, column 3 will be the sell rate
+            */
             for (int i = 0; i < SubCurrencyList.Count; i++)
             {
                 RowDefinition currRow = new RowDefinition();
@@ -63,11 +51,48 @@ namespace DynamicExchangeRate
                 var currDescription = new TextBlock
                 {
                     Text = BaseSubText,
-                    Margin = new Thickness(20)
+                    Margin = new Thickness(1),
+                    Foreground = new SolidColorBrush(Colors.Black)
                 };
+
+                Grid.SetColumn(currDescription, 0);
+                Grid.SetRow(currDescription, 0);
+
+                //currRow.SetValue(dp, currDescription);
             }
+            RootWindow.Content = currGrid;
         }
 
+        private void InitGrid(object sender, RoutedEventArgs e)
+        {
+            var currGrid = new Grid();//When the ExchangeRateInput is open, it automatically creates a new grid.
+
+            /*
+            For loop adjusts the amount of rows need to be added
+            3 columns and 1 row remain contant when loaded
+            row n, column 1 will be the listed subcurrency
+            row n, column 2 will be the buy rate
+            row n, column 3 will be the sell rate
+            */
+            for (int i = 0; i < SubCurrencyList.Count; i++)
+            {
+                RowDefinition currRow = new RowDefinition();
+                currGrid.RowDefinitions.Add(currRow);
+
+                string BaseSubText = $"{BaseCurrency.ToString()}/{SubCurrencyList[i]}";
+                var currDescription = new TextBlock
+                {
+                    Text = BaseSubText,
+                    Margin = new Thickness(1),
+                    Foreground = new SolidColorBrush(Colors.Black)
+            };
+
+                Grid.SetColumn(currDescription, 0);
+                Grid.SetRow(currDescription, 0);
+
+                //currRow.SetValue(dp, currDescription);
+            }
+        }
 
         private Dictionary<string, TextBox> StrToElement = new Dictionary<string, TextBox>();
     }

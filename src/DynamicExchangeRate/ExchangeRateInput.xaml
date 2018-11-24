@@ -20,17 +20,17 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Label Grid.Column ="1" Foreground="#33BCBA">BUY (ASK)</Label>
-            <Label Grid.Column ="2" Foreground="#8D70B8">SELL (BID)</Label>
-            <!--PREVIOUS COLOURS : #1F88F2 #c10720--> 
+            <Label  Grid.Column ="1" Foreground="#33BCBA" Grid.RowSpan="2">BUY (ASK)</Label>
+            <Label Grid.Column ="2" Foreground="#8D70B8" Grid.RowSpan="2">SELL (BID)</Label>
+            <!--PREVIOUS COLOURS : #1F88F2 #c10720-->
         </Grid>
 
         <StackPanel x:Name="ExchangeRateInputMainStackPanel">
-          <Grid>
-            <Grid.RowDefinitions>
-              
-            </Grid.RowDefinitions>
-          </Grid>
+            <Grid>
+                <Grid.RowDefinitions>
+
+                </Grid.RowDefinitions>
+            </Grid>
         </StackPanel>
 
     </StackPanel>
