@@ -60,7 +60,7 @@ namespace DynamicExchangeRate
 
                 //currRow.SetValue(dp, currDescription);
             }
-            RootWindow.Content = currGrid;
+            ExchangeRateInputMainGrid.Children.Add(currGrid);
         }
 
         private void InitGrid(object sender, RoutedEventArgs e)
