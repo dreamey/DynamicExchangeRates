@@ -13,25 +13,45 @@
             <Setter Property="Margin" Value="20" />
         </Style>
     </UserControl.Resources>
-    <StackPanel>
-        <Grid>
+    <StackPanel x:Name ="ExchangeRateInputMainStackPanel">
+        <Grid x:Name="ExchangeRateInputMainGrid">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Label  Grid.Column ="1" Foreground="#33BCBA" Grid.RowSpan="2">BUY (ASK)</Label>
-            <Label Grid.Column ="2" Foreground="#8D70B8" Grid.RowSpan="2">SELL (BID)</Label>
-            <!--PREVIOUS COLOURS : #1F88F2 #c10720-->
-        </Grid>
 
-        <StackPanel x:Name="ExchangeRateInputMainStackPanel">
+          <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+          </Grid.RowDefinitions>
+          
+            <Label  Grid.Row ="0" Grid.Column ="1" Foreground="#33BCBA" Grid.RowSpan="2">BUY (ASK)</Label>
+            <Label Grid.Row ="0" Grid.Column ="2" Foreground="#8D70B8" Grid.RowSpan="2">SELL (BID)</Label>
+            <!--PREVIOUS COLOURS : #1F88F2 #c10720-->
+            <Label x:Name ="_FirstCurrencyLabel" Grid.Column ="0" Grid.Row="1" Loaded ="FirstCurrencyLabel_loaded"></Label>
+            <Label x:Name ="_SecondCurrencyLabel" Grid.Column ="0" Grid.Row="2" Loaded ="SecondCurrencyLabel_Loaded"></Label>
+          
+          
+        </Grid>
+        
+        <!--<StackPanel x:Name="ExchangeRateInputMainStackPanel">
             <Grid x:Name="ExchangeRateInputMainGrid">
                 <Grid.RowDefinitions>
+                  <RowDefinition Height = "*"/>
+                  <RowDefinition Height = "*"/>
+                </Grid.RowDefinitions>-->
 
-                </Grid.RowDefinitions>
-            </Grid>
-        </StackPanel>
-
+                <!--<Grid.ColumnDefinitions>
+                  <ColumnDefinition Width = "Auto" />
+                  <ColumnDefinition Width = "Auto"/>
+                </Grid.ColumnDefinitions> -->
+              <!--
+              <Label x:Name ="_FirstCurrencyLabel" Grid.Column ="0" Grid.Row="0" Loaded="FirstCurrencyLable_Loaded"></Label>
+              <Label x:Name ="_SecondCurrencyLabel" Grid.Column ="0" Grid.Row="1" Loaded="SecondCurrencyLable_Loaded"></Label>
+            </Grid>-->
+        <!--</StackPanel>-->
     </StackPanel>
-</UserControl>
+  </UserControl>
+

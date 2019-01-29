@@ -39,7 +39,7 @@
                 <TextBlock x:Name="_subCurrencyDisplay1" >Sub Currency #1:</TextBlock>
                 <ComboBox x:Name="_subCurrencyCombobox1" Visibility="Hidden"></ComboBox>
 
-                <Button x:Name="_confirmButton" Background="#33BCBA" Click="_confirmButton_Click">Confirm</Button>
+                <Button x:Name="_confirmButton" Visibility="Hidden" Background="#33BCBA" Click="_confirmButton_Click">Confirm</Button>
             </StackPanel>
         </ScrollViewer>
     </Grid>

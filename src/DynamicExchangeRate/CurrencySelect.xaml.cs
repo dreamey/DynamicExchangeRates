@@ -48,6 +48,7 @@ namespace DynamicExchangeRate
                 }
             }
             _subCurrencyCombobox1.Items.Clear();
+            _confirmButton.Visibility = Visibility.Hidden;
         }
 
         private void _subCurrencyCombobox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -61,7 +62,7 @@ namespace DynamicExchangeRate
                 {
                     _subCurrencyCombobox1.Items.Add(currency);
                     //If only 1 sub currency can be chosen, then auto fill it
-                    if (_subCurrencyCombobox1.Items.Count == 1) { _subCurrencyCombobox1.SelectedIndex = 0; }
+                    if (_subCurrencyCombobox1.Items.Count == 1) { _subCurrencyCombobox1.SelectedIndex = 0; _confirmButton.Visibility = Visibility.Visible; }
                 }
             };
          }
