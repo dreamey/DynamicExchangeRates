@@ -9,6 +9,15 @@ namespace DynamicExchangeRateLib
 {
     public class ExchangeRate
     {
+        public readonly double AskPrice;
+        public readonly double BidPrice;
+
+        public ExchangeRate(double AskPrice, double BidPrice)
+        {
+            this.AskPrice = AskPrice;
+            this.BidPrice = BidPrice;
+        }
+
         public enum Currency
         {
             EUR,
@@ -36,7 +45,6 @@ namespace DynamicExchangeRateLib
                 default:
                     throw new InvalidCastException();
             }
-
 
         }
 

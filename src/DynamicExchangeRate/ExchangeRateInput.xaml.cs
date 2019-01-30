@@ -32,82 +32,31 @@ namespace DynamicExchangeRate
 
         }
 
-        private void FirstCurrencyLable_Loaded(object sender, RoutedEventArgs e)
-        {
-            //this.Content = SubCurrencyList[0].ToString();
-        }
-
-        private void SecondCurrencyLable_Loaded(object sender, RoutedEventArgs e)
-        {
-            //this.Content = SubCurrencyList[1].ToString();
-        }
-
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            
-            /*var currGrid = new Grid();//When the ExchangeRateInput is open, it automatically creates a new grid.
-
-            
-            For loop adjusts the amount of rows need to be added
-            3 columns and 1 row remain contant when loaded
-            row n, column 1 will be the listed subcurrency
-            row n, column 2 will be the buy rate
-            row n, column 3 will be the sell rate
-            
-            for (int i = 0; i < SubCurrencyList.Count; i++)
-            {
-                RowDefinition currRow = new RowDefinition();
-                currGrid.RowDefinitions.Add(currRow);
-
-                string BaseSubText = $"{BaseCurrency.ToString()}/{SubCurrencyList[i]}";
-                var currDescription = new TextBlock
-                {
-                    Text = BaseSubText,
-                    Margin = new Thickness(1),
-                    Foreground = new SolidColorBrush(Colors.Black)
-                };
-
-                Grid.SetColumn(currDescription, 0);
-                Grid.SetRow(currDescription, 0);
-
-                //currRow.SetValue(dp, currDescription);
-            }
-            ExchangeRateInputMainGrid.Children.Add(currGrid);
-            */
-            
+            _FirstCurrencyLabel.Content = SubCurrencyList[0].ToString();
+            _SecondCurrencyLabel.Content = SubCurrencyList[1].ToString();
+            _BaseCurrencyLabel.Content = "BASE: " + BaseCurrency;
         }
-        /*
-        private void InitGrid(object sender, RoutedEventArgs e)
+
+        private void CheckLength(object sender, TextChangedEventArgs e)
         {
-            var currGrid = new Grid();//When the ExchangeRateInput is open, it automatically creates a new grid.
-            
-            
-            For loop adjusts the amount of rows need to be added
-            3 columns and 1 row remain contant when loaded
-            row n, column 1 will be the listed subcurrency
-            row n, column 2 will be the buy rate
-            row n, column 3 will be the sell rate
-            
-            for (int i = 0; i < SubCurrencyList.Count; i++)
+            var CurrentTextbox = ((TextBox)sender);
+
+            if (!IsInt(CurrentTextbox.Text))
             {
-                RowDefinition currRow = new RowDefinition();
-                currGrid.RowDefinitions.Add(currRow);
-
-                string BaseSubText = $"{BaseCurrency.ToString()}/{SubCurrencyList[i]}";
-                var currDescription = new TextBlock
-                {
-                    Text = BaseSubText,
-                    Margin = new Thickness(1),
-                    Foreground = new SolidColorBrush(Colors.Black)
-                };
-
-                Grid.SetColumn(currDescription, 0);
-                Grid.SetRow(currDescription, 0);
-
-                //currRow.SetValue(dp, currDescription);
+                CurrentTextbox.SelectionStart = CurrentTextbox.Text.Length;
             }
-        }*/
+            if (CurrentTextbox.Text.Length > 7)
+            {
+                CurrentTextbox.Text = CurrentTextbox.Text.Remove(CurrentTextbox.Text.Length - 1);
+                CurrentTextbox.SelectionStart = CurrentTextbox.Text.Length;
+            }
+        }
 
-        private Dictionary<string, TextBox> StrToElement = new Dictionary<string, TextBox>();
+        private static bool IsInt(string Str)
+        {
+            var muhRegex = new System.Text.Regex("[0-9]");
+        }
     }
 }

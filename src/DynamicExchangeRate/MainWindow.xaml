@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DynamicExchangeRate"
         mc:Ignorable="d"
-        Title="Dynamic Exchange Rate" Height="800" Width="1200" WindowStyle="None">
+        Title="whoever reads this is bent" Height="800" Width="1200" WindowStyle="None">
     <Grid>
         <StackPanel x:Name="MainStackPanel">
             

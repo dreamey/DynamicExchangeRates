@@ -14,7 +14,7 @@
         </Style>
     </UserControl.Resources>
     <StackPanel x:Name ="ExchangeRateInputMainStackPanel">
-        <Grid x:Name="ExchangeRateInputMainGrid">
+        <Grid x:Name="ExchangeRateInputMainGrid" Height="264">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
@@ -27,13 +27,19 @@
             <RowDefinition Height="*"/>
           </Grid.RowDefinitions>
           
-            <Label  Grid.Row ="0" Grid.Column ="1" Foreground="#33BCBA" Grid.RowSpan="2">BUY (ASK)</Label>
-            <Label Grid.Row ="0" Grid.Column ="2" Foreground="#8D70B8" Grid.RowSpan="2">SELL (BID)</Label>
+            <Label  Grid.Row ="0" Grid.Column ="1" Foreground="#33BCBA" Grid.RowSpan="1">BUY (ASK)</Label>
+            <Label Grid.Row ="0" Grid.Column ="2" Foreground="#dd6755" Grid.RowSpan="1">SELL (BID)</Label>
             <!--PREVIOUS COLOURS : #1F88F2 #c10720-->
-            <Label x:Name ="_FirstCurrencyLabel" Grid.Column ="0" Grid.Row="1" Loaded ="FirstCurrencyLabel_loaded"></Label>
-            <Label x:Name ="_SecondCurrencyLabel" Grid.Column ="0" Grid.Row="2" Loaded ="SecondCurrencyLabel_Loaded"></Label>
-          
-          
+            <Label x:Name ="_BaseCurrencyLabel" Grid.Column ="0" Grid.Row="0" Grid.RowSpan="1" Foreground="#8D70B8" HorizontalContentAlignment="Left"/><!--Grey Used-->
+            <Label x:Name ="_FirstCurrencyLabel" Grid.Column ="0" Grid.Row="1" Grid.RowSpan="1" Foreground="#8D70B8" HorizontalContentAlignment="Left"/><!--Purple Used For #0 and #1-->
+            <Label x:Name ="_SecondCurrencyLabel" Grid.Column ="0" Grid.Row="2" Grid.RowSpan="1" Foreground="#8D70B8" HorizontalContentAlignment="Left" />
+
+            <TextBox x:Name="_FirstAskPrice"  FontSize="50" Grid.Column="1" Grid.Row="1" Grid.RowSpan="1" Margin="10" TextChanged="CheckLength" />
+            <TextBox x:Name="_FirstBidPrice" FontSize="50" Grid.Column="2" Grid.Row="1" Grid.RowSpan="1" Margin="10" TextChanged="CheckLength" />
+
+            <TextBox x:Name="_SecondAskPrice" FontSize="50" Grid.Column="1" Grid.Row="2" Grid.RowSpan="1" Margin="10" TextChanged="CheckLength" />
+            <TextBox x:Name="_SecondBidPrice" FontSize="50" Grid.Column="2" Grid.Row="2" Grid.RowSpan="1" Margin="10" TextChanged="CheckLength" />
+            
         </Grid>
         
         <!--<StackPanel x:Name="ExchangeRateInputMainStackPanel">
