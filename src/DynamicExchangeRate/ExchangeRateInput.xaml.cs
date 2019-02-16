@@ -42,21 +42,33 @@ namespace DynamicExchangeRate
         private void CheckLength(object sender, TextChangedEventArgs e)
         {
             var CurrentTextbox = ((TextBox)sender);
+            string text = CurrentTextbox.Text;
 
-            if (!IsInt(CurrentTextbox.Text))
-            {
-                CurrentTextbox.SelectionStart = CurrentTextbox.Text.Length;
-            }
             if (CurrentTextbox.Text.Length > 7)
             {
                 CurrentTextbox.Text = CurrentTextbox.Text.Remove(CurrentTextbox.Text.Length - 1);
                 CurrentTextbox.SelectionStart = CurrentTextbox.Text.Length;
             }
+
+            CurrentTextbox.Text = IntCheck(CurrentTextbox.Text);
         }
 
-        private static bool IsInt(string Str)
+        private static string IntCheck(string Str)
         {
-            var muhRegex = new System.Text.Regex("[0-9]");
+            var length = Str.Length;
+
+            for (int i = 0; i < length - 1; i++)
+            {
+                var ISInteger = char.IsDigit(Str[i]);
+                if (!ISInteger || Str[i].ToString() != ".")
+                {
+                    Str.Remove(i, 1);
+                    MessageBox.Show("ur uncle is in pen");
+                }
+            }
+
+            return Str;
+
         }
     }
 }
