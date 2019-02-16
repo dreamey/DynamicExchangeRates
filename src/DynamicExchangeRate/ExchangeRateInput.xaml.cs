@@ -42,7 +42,7 @@ namespace DynamicExchangeRate
         private void CheckLength(object sender, TextChangedEventArgs e)
         {
             var CurrentTextbox = ((TextBox)sender);
-            string text = CurrentTextbox.Text;
+            var text = CurrentTextbox.Text;
 
             if (CurrentTextbox.Text.Length > 7)
             {
@@ -50,7 +50,7 @@ namespace DynamicExchangeRate
                 CurrentTextbox.SelectionStart = CurrentTextbox.Text.Length;
             }
 
-            CurrentTextbox.Text = IntCheck(CurrentTextbox.Text);
+            CurrentTextbox.Text = IntCheck(text);
         }
 
         private static string IntCheck(string Str)
@@ -60,10 +60,10 @@ namespace DynamicExchangeRate
             for (int i = 0; i < length - 1; i++)
             {
                 var ISInteger = char.IsDigit(Str[i]);
-                if (!ISInteger || Str[i].ToString() != ".")
+                if (!ISInteger)
                 {
-                    Str.Remove(i, 1);
                     MessageBox.Show("ur uncle is in pen");
+                    Str.Remove(i, 1);
                 }
             }
 
