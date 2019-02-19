@@ -1,4 +1,4 @@
-﻿  using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using DynamicExchangeRateLib;
+using System.Text.RegularExpressions;
 
 namespace DynamicExchangeRate
 {
@@ -42,32 +43,29 @@ namespace DynamicExchangeRate
         private void CheckLength(object sender, TextChangedEventArgs e)
         {
             var CurrentTextbox = ((TextBox)sender);
-            var text = CurrentTextbox.Text;
-
+            /*if(!IntCheck(CurrentTextbox.Text))
+            {
+                var text = CurrentTextbox.Text;
+                text = text.Remove(CurrentTextbox.Text.Length-1);
+                CurrentTextbox.Text = text;
+                CurrentTextbox.SelectionStart = CurrentTextbox.Text.Length;
+            }
+            */
             if (CurrentTextbox.Text.Length > 7)
             {
                 CurrentTextbox.Text = CurrentTextbox.Text.Remove(CurrentTextbox.Text.Length - 1);
                 CurrentTextbox.SelectionStart = CurrentTextbox.Text.Length;
             }
 
-            CurrentTextbox.Text = IntCheck(text);
-        }
-
-        private static string IntCheck(string Str)
-        {
-            var length = Str.Length;
-
-            for (int i = 0; i < length - 1; i++)
+            if (!(Regex.IsMatch(CurrentTextbox.Text, "^(([0-9]+)|([.,]))+$")))
             {
-                var ISInteger = char.IsDigit(Str[i]);
-                if (!ISInteger)
+
+                if (CurrentTextbox.Text.Length - 1 >= 0)
                 {
-                    MessageBox.Show("ur uncle is in pen");
-                    Str.Remove(i, 1);
+                    CurrentTextbox.Text = CurrentTextbox.Text.Remove(CurrentTextbox.Text.Length - 1,1);
+                    CurrentTextbox.SelectionStart = CurrentTextbox.Text.Length;
                 }
             }
-
-            return Str;
 
         }
     }
