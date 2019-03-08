@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="DynamicExchangeRate.MainMenu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DynamicExchangeRate"
+             mc:Ignorable="d" 
+             d:DesignHeight="760" d:DesignWidth="792">
+    <UserControl.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="Margin" Value="20" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Margin" Value="20"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="Background" Value="#33BCBA"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+    </UserControl.Resources>
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition x:Name="MenuBanner" Height="*"/>
+            <RowDefinition x:Name="DisplayOption" Height="*"/>
+            <RowDefinition x:Name="ChangeOption" Height="*"/>
+            <RowDefinition x:Name="QuitOption" Height="*"/>
+            <RowDefinition x:Name="MenuFooter" Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Column="0" Grid.Row="0" Content="Dynamic Exchange Rates" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Button x:Name="ButtonDisplay" Grid.Column="0" Grid.Row="1" Content="Display The Exchange Rates (ESC to Exit)" Click="ButtonDisplay_Click"/>
+        <Button x:Name="ButtonEditRates"  Grid.Column="0" Grid.Row="2" Content="Edit the Exchange Rates" Click="ButtonEditRates_Click"/>
+        <Button x:Name="ButtonQuit" Grid.Column="0" Grid.Row="3" Content="Quit the Program" Click="ButtonQuit_Click"/>
+
+    </Grid>
+</UserControl>

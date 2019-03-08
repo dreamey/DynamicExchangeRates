@@ -18,6 +18,7 @@ namespace DynamicExchangeRate
             public static MainWindow MainWindowHWND;
             public static CurrencySelect CurrencySelectHWND;
             public static ExchangeRateInput ExchangeRateInputHWND;
+            public static MainMenu MainMenuHWND;
         }
 
         private void Application_Startup(object sender, StartupEventArgs e)

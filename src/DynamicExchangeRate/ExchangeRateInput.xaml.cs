@@ -43,21 +43,15 @@ namespace DynamicExchangeRate
         private void CheckLength(object sender, TextChangedEventArgs e)
         {
             var CurrentTextbox = ((TextBox)sender);
-            /*if(!IntCheck(CurrentTextbox.Text))
-            {
-                var text = CurrentTextbox.Text;
-                text = text.Remove(CurrentTextbox.Text.Length-1);
-                CurrentTextbox.Text = text;
-                CurrentTextbox.SelectionStart = CurrentTextbox.Text.Length;
-            }
-            */
+
             if (CurrentTextbox.Text.Length > 7)
             {
                 CurrentTextbox.Text = CurrentTextbox.Text.Remove(CurrentTextbox.Text.Length - 1);
                 CurrentTextbox.SelectionStart = CurrentTextbox.Text.Length;
             }
 
-            if (!(Regex.IsMatch(CurrentTextbox.Text, "^(([0-9]+)|([.,]))+$")))
+            //old regex ^(([0-9]+)|(([.,]){1})??)+$
+            if (!(Regex.IsMatch(CurrentTextbox.Text, "^([0-9]+)(([.|,])?|[.|,]([0-9]+))|([0-9]+)$")))
             {
 
                 if (CurrentTextbox.Text.Length - 1 >= 0)
@@ -67,6 +61,13 @@ namespace DynamicExchangeRate
                 }
             }
 
+        }
+
+        private void _ExchangeRateConfirm_Click(object sender, RoutedEventArgs e)
+        {
+            App.ElementHandles.MainMenuHWND = new MainMenu();
+            ExchangeRateInputMainGrid.Children.Clear();
+            ExchangeRateInputMainGrid.Children.Add(App.ElementHandles.MainMenuHWND);
         }
     }
 }

@@ -62,7 +62,7 @@
              
          </Grid>
         <Grid x:Name ="ExchangeRateConfirm" Grid.Row="1">
-            <Button x:Name="_ExchangeRateConfirm" Content="Confirm" Margin="10" VerticalAlignment="Bottom"/>
+            <Button x:Name="_ExchangeRateConfirm" Content="Confirm" Margin="10" VerticalAlignment="Bottom" Click="_ExchangeRateConfirm_Click"/>
         </Grid>
     </Grid>
 </UserControl>

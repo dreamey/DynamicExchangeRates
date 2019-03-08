@@ -75,6 +75,8 @@ namespace DynamicExchangeRate
                 ExchangeRate.StrToCurrency(_subCurrencyCombobox.SelectedItem.ToString()),
                 ExchangeRate.StrToCurrency(_subCurrencyCombobox1.SelectedItem.ToString())
             };
+
+            //Creates a new Page without distorting window resolution or creating a new window
             App.ElementHandles.ExchangeRateInputHWND = new ExchangeRateInput(BaseCurrency, CurrencyList);
             CurrencySelectMainGrid.Children.Clear();
             CurrencySelectMainGrid.Children.Add(App.ElementHandles.ExchangeRateInputHWND);
